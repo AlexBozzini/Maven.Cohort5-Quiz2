@@ -2,6 +2,7 @@ package com.zipcodewilmington.assessment2.part1;
 
 public class WuTangConcatenator {
     private Integer input;
+
     public WuTangConcatenator(Integer input) {
         this.input = input;
     }
