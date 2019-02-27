@@ -13,12 +13,13 @@ public class ArrayUtility {
     }
 
     public Integer[] rotate(Integer[] array, Integer index) {
-        Integer counter = 0;
-        while (counter <= index) {
-
+        Integer[] rotatedArray = new Integer[array.length];
+        for (int i = 0; i < array.length -1; i++){
+            rotatedArray[(i - index) % array.length] = array[i];
+            }
+            return rotatedArray;
         }
-        return null;
-    }
+
 
     public Integer countOccurrence(Integer[] array1, Integer[] array2, Integer valueToEvaluate) {
         Integer[] mergedArray = merge(array1, array2);
