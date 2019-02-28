@@ -10,7 +10,11 @@ public class IntegerArrayUtilities {
     }
 
     public Integer[] range(int start, int stop) {
-        return null;
+        Integer[] range = new Integer[stop - start + 1];
+        for (int i = 0; i < range.length; i++){
+            range[i] = i + start;
+        }
+        return range;
     }
 
     public Integer getSumOfFirstTwo(Integer[] array) {
