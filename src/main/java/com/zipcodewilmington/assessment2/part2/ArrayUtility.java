@@ -1,24 +1,25 @@
 package com.zipcodewilmington.assessment2.part2;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class ArrayUtility {
     public Integer[] merge(Integer[] array1, Integer[] array2) {
         Integer[] mergedArray = new Integer[array1.length + array2.length];
         for (int i = 0; i < array1.length; i++) {
             mergedArray[i] = array1[i];
         }
-        for (int i = 0; i < array2.length; i++) {
-            mergedArray[i + array1.length] = array2[i];
+        for (int j = 0; j < array2.length; j++) {
+            mergedArray[j + array1.length] = array2[j];
         }
         return mergedArray;
     }
 
     public Integer[] rotate(Integer[] array, Integer index) {
-        Integer[] rotatedArray = new Integer[array.length];
-        for (int i = 0; i < array.length -1; i++){
-            rotatedArray[(i - index) % array.length] = array[i];
-            }
-            return rotatedArray;
-        }
+        Integer[] arrayFirstHalf = Arrays.copyOfRange(array,index, array.length);
+        Integer[] arraySecondHalf = Arrays.copyOfRange(array,0, index);
+        return merge(arrayFirstHalf, arraySecondHalf);
+    }
 
 
     public Integer countOccurrence(Integer[] array1, Integer[] array2, Integer valueToEvaluate) {
