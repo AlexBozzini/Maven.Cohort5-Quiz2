@@ -1,11 +1,9 @@
 package com.zipcodewilmington.assessment2.part2;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Router {
-    Map<String, String> router = new HashMap<>();
+    Map<String, String> router = new TreeMap<>();
     public void add(String path, String controller) {
         router.putIfAbsent(path, controller);
     }
@@ -29,7 +27,13 @@ public class Router {
     }
 
     public String toString(){
-        String output = "";
-        return output;
+        String result = "";
+        Set<Map.Entry<String, String>> entries = router.entrySet();
+
+        for(Map.Entry<String, String> e : entries){
+            String format = e.getKey() + " -> " + e.getValue() + "\n";
+            result += format;
+        }
+        return result;
         }
     }

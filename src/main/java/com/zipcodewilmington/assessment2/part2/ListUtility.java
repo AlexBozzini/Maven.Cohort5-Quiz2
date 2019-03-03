@@ -39,8 +39,28 @@ public class ListUtility {
     }
 
     public Integer mostCommon() {
+        Integer common = list.get(0);
+        int commonCount = countOccurrence(common);
 
-        return null;
+        for (Integer currentNumber : list){
+            int currentCount = countOccurrence(currentNumber);
+            if (currentCount > commonCount){
+                common = currentNumber;
+                commonCount = currentCount;
+            }
+        }
+        return common;
+    }
+
+    private int countOccurrence(Integer valueToCount){
+        int count = 0;
+
+        for (Integer currentValue : list){
+            if (currentValue == valueToCount){
+                count++;
+            }
+        }
+        return count;
     }
 
 
